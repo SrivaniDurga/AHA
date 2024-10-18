@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {               
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    z-index: 1000;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    /* align-items: center; */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    margin: 0px 15px;
+}
+
+.nav-links a:hover {
+    color: #ff6d2e;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.upgrade-btn {
+    background: linear-gradient(0deg, #b61a09 -86.4%, #ff6d2e);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+    padding-top: 20px;
+}
+
+.mobile-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav ul li {
+    padding: 15px;
+}
+
+.mobile-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.mobile-nav ul li a:hover {
+    color: #ff6d2e;
+}
+
+.upgrade-btn-mobile{
+    background: linear-gradient(0deg, #b61a09 -86.4%, #ff6d2e);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-left: 10px;
+}
+.user-avatar-mobile{
+    border-radius: 50%;
+    margin: 15px;
+}
+/* Banner */
+.banner img {
+    width: 100%;
+    height: auto; 
+}
+
+/* Movie Rows */
+.movie-row {
+    margin: 30px 0px; 
+    width: 100%;
+}
+
+.movie-row h2 {
+    padding: 20px;
+    font-size: 1.5rem;
+}
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.movie-card img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.movie-card:hover img {
+    transform: scale(1.00) translateY(-19px);
+}
+
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: #0a0a0a;
+    width: 100%;
+}
+
+.footer-list, .footer-connect-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.footer-items li {
+    list-style-type: none;
+    padding: 5px 0px;
+}
+
+.footer-items li a {
+    color: darkgray;
+    text-decoration: none;
+}
+
+.footer-connect h3 {
+    margin: 10px 0;
+}
+
+.social-icons, .app-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a, .app-icons a {
+    text-decoration: none;
+    font-size: 1.5rem; 
+}
+
+.copy-write {
+    text-align: center;
+    color: darkgray;
+    margin: 10px 0px;
+}
+.movie-card {
+    flex: 1 1 100%; 
+    margin: 10px; 
+}
+.footer-group {
+    flex: 1 1 100%; 
+    margin: 10px;
+}
+/* Media query up to 768px (footer-connect below footer-list) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide original nav-links */
+    }
+    
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+    .user-menu {
+        display: none; /* Hide user menu on smaller screens */
+    }
+    .user-menu-mobile{
+        display: flex;
+        align-items: center;
+        flex:1 1 100%
+
+    }
+    .movie-card {
+        flex: 1 1 calc(50% - 20px); 
+        /* 50% means takes up 50% of the parent container's width, and -20px means, movie-card has margin 10px. So 10px+10px=20px, subtract that to avoid overflow */
+    }
+    
+    .footer-list {
+        flex-direction:row;
+    }
+
+    .footer-group {
+        flex: 1 1 calc(50% - 20px); 
+    }
+
+    .footer-connect {
+        flex: 1 1 100%; /* Take up full width */
+        margin: 10px; /* Add space between footer-list and footer-connect */
+    }
+}
+
+/* Media query for 769px and above (footer-connect and footer-list in a single row) */
+@media (min-width: 769px) {
+    .movie-card {
+        flex: 1 1 calc(25% - 20px); /* Each card takes 25% width minus the margin */
+    }
+    .mobile-nav{
+        display: none !important; 
+   
+    }
+     .footer-connect-wrapper {
+        flex-direction: row;
+    }
+
+    .footer-connect {
+        flex: 1 1 25%; /* Footer-connect takes up 25% width */
+        margin-top: 0;
+        padding-right: 20px;
+    }
+
+    .footer-list {
+        flex: 1 1 75%; 
+        flex-direction: row;
+    }
+
+    .footer-group {
+        flex: 1 1 calc(25% - 20px); /* Each group takes 25% width */
+    }
+}
+@media (min-width: 993px) {
+    .movie-card {
+        flex: 1 1 calc(20% - 20px); /* Each card takes 25% width minus the margin */
+    }
+}    
